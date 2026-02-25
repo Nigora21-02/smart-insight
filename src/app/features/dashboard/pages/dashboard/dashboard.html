@@ -1,26 +1,24 @@
 <h1>Dashboard</h1>
-    <!-- metrics is an array of Metric objects defined in the Dashboard component
-    metrics: Metric[] =[]; its value is set in the ngOnInit method by calling the getMetrics() method of the DashboardDataService, which returns an array of Metric objects. Each Metric object has properties like name, value, and change that are used to display the metric information in the MetricCard component.
-    this.dashboardService.getMetrics().subscribe(data => {
-      this.metrics = data;
-    }); -->
-<div class="metrics">
-  @for (metric of metrics; track metric.name) {
-    <app-metric-card [metric]="metric"></app-metric-card>
+
+<button (click)="refresh()">Refresh</button>
+
+@if (state$ | async; as state) {
+
+  @if (state.loading) {
+    <p>Loading metrics...</p>
   }
-</div>
-     <!-- 
-        app-metric-card → the left part is the selector defined in the @Component decorator of MetricCard:
-        metric-card.ts:
 
-        @Component({
-          selector: 'app-metric-card'
-        })
+  @if (state.error) {
+    <p>Something went wrong.</p>
+    <button (click)="refresh()">Retry</button>
+  }
 
-        [metric] → is @Input() в MetricCard:
+  @if (!state.loading && !state.error) {
+    <div class="metrics">
+      @for (metric of state.metrics; track metric.name) {
+        <app-metric-card [metric]="metric"></app-metric-card>
+      }
+    </div>
+  }
 
-        @Input() metric!: Metric;
-        Right part = current object from the array.
-        Left part = name of the input property in MetricCard.
-       
-      -->
+}
