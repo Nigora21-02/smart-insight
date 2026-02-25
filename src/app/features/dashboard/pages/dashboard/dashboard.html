@@ -1,14 +1,13 @@
 <h1>Dashboard</h1>
 
-<button (click)="refresh()">Refresh</button>
-
+<app-search-input (search)="onSearch($event)" />
 @if (state$ | async; as state) {
 
   @if (state.loading) {
     <app-loading-spinner />
   } @else if (state.error) {
     <p>Something went wrong.</p>
-    <button (click)="refresh()">Retry</button>
+    
   } @else {
     <div class="metrics">
       @for (metric of state.metrics; track metric.name) {
