@@ -5,15 +5,11 @@
 @if (state$ | async; as state) {
 
   @if (state.loading) {
-    <p>Loading metrics...</p>
-  }
-
-  @if (state.error) {
+    <app-loading-spinner />
+  } @else if (state.error) {
     <p>Something went wrong.</p>
     <button (click)="refresh()">Retry</button>
-  }
-
-  @if (!state.loading && !state.error) {
+  } @else {
     <div class="metrics">
       @for (metric of state.metrics; track metric.name) {
         <app-metric-card [metric]="metric"></app-metric-card>

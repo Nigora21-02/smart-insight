@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs';
 
 export interface Metric {
   name: string;
@@ -20,6 +21,6 @@ export class DashboardDataService {
       { name: 'Revenue ($)', value: 18200, change: 3.8 }
     ];
 
-    return of(mockData);
+    return of(mockData).pipe(delay(2500));  // Simulate network delay
   }
 }

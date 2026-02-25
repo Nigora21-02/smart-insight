@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subject, switchMap, map, startWith, catchError, of, Observable, tap } from 'rxjs';
-
 import { DashboardDataService, Metric } from '../../services/dashboard-data.service';
 import { MetricCard } from '../../components/metric-card/metric-card';
-
+import { LoadingSpinner } from '../../../../shared/components/loading-spinner/loading-spinner';
+import { delay } from 'rxjs';
 interface DashboardState {
   loading: boolean;
   error: boolean;
@@ -14,7 +14,7 @@ interface DashboardState {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MetricCard, CommonModule],
+  imports: [MetricCard, LoadingSpinner, CommonModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
