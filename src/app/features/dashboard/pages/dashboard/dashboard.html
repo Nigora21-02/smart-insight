@@ -1,6 +1,6 @@
 <h1>Dashboard</h1>
 
-<app-search-input (search)="onSearch($event)" />
+<!-- <app-search-input (search)="onSearch($event)" />
 @if (state$ | async; as state) {
 
   @if (state.loading) {
@@ -16,4 +16,14 @@
     </div>
   }
 
-}
+} -->
+
+
+<app-kpi-grid></app-kpi-grid>
+
+<app-chart-section></app-chart-section>
+
+<div class="bottom-section">
+  <app-recent-events></app-recent-events>
+  <app-system-health-summary></app-system-health-summary>
+</div>

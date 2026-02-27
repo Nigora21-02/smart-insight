@@ -16,6 +16,10 @@ import { DashboardDataService, Metric } from '../../services/dashboard-data.serv
 import { MetricCard } from '../../components/metric-card/metric-card';
 import { LoadingSpinner } from '../../../../shared/components/loading-spinner/loading-spinner';
 import { SearchInput } from '../../../../shared/components/search-input/search-input';
+import { KpiGrid } from '../../components/kpi-grid/kpi-grid';
+import { ChartSection } from '../../components/chart-section/chart-section';
+import { RecentEvents } from '../../components/recent-events/recent-events';
+import { SystemHealthSummary } from '../../components/system-health-summary/system-health-summary';
 
 interface DashboardState {
   loading: boolean;
@@ -26,7 +30,7 @@ interface DashboardState {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MetricCard, LoadingSpinner, CommonModule, SearchInput],
+  imports: [MetricCard, LoadingSpinner, CommonModule, SearchInput, KpiGrid,ChartSection, RecentEvents, SystemHealthSummary],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
