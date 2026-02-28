@@ -1,5 +1,3 @@
-<h1>Dashboard</h1>
-
 <!-- <app-search-input (search)="onSearch($event)" />
 @if (state$ | async; as state) {
 
@@ -18,12 +16,15 @@
 
 } -->
 
+<div class="dashboard">
+  <h1>Dashboard</h1>
 
-<app-kpi-grid></app-kpi-grid>
+  <app-kpi-grid></app-kpi-grid>
 
-<app-chart-section></app-chart-section>
+  <app-chart-section></app-chart-section>
 
-<div class="bottom-section">
-  <app-recent-events></app-recent-events>
-  <app-system-health-summary></app-system-health-summary>
+  <div class="bottom-section">
+    <app-recent-events></app-recent-events>
+    <app-system-health-summary></app-system-health-summary>
+  </div>
 </div>

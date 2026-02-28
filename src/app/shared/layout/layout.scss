@@ -1,14 +1,16 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  background: var(--color-bg);
 }
-
+.mobile-header {
+  display: none;
+}
 .sidebar {
   width: 240px;
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
   padding: var(--space-3);
+  flex-shrink: 0;
 }
 
 .content {
@@ -45,4 +47,50 @@
 .sidebar a.active {
   background: var(--color-primary);
   color: var(--color-surface);
+}
+@media (max-width: 768px) {
+  .layout {
+    display: block;
+  }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--color-bg);
+    position: relative;
+  }
+
+  .menu-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .content {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
 }
