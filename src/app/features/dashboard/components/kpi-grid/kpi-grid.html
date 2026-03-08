@@ -1,0 +1,5 @@
+<div class="kpi-grid">
+  @for (kpi of kpis; track kpi.title) {
+    <app-kpi-card [title]="kpi.title" [value]="kpi.value" [change]="kpi.change" [icon]="kpi.icon" />
+  }
+</div>
