@@ -1,14 +1,12 @@
 .chart-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  padding: var(--space-1);
+  grid-auto-rows: 1fr;
 }
-
-.chart-item {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3);
-  box-shadow: var(--shadow-card);
+.chart-section > * {
+  min-height: 0;
 }
 
 @media (max-width: 1024px) {
